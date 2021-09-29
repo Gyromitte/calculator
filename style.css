@@ -43,6 +43,7 @@ body{
     background-color: #AEC3B0;
     border-radius: 10px;
     padding: 5px;
+    height: 60px;
 }
 #buttons-container{
     justify-content: space-around;
