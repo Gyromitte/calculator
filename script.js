@@ -1,9 +1,9 @@
 let firstNumber = 0;
 let secondNumber = 0;
 
-firstNumber = prompt("write the first number: ");
+/*firstNumber = prompt("write the first number: ");
 operator = prompt("Write the name of the operator that you want to use: ");
-secondNumber = prompt("write the second number: ");
+secondNumber = prompt("write the second number: ");*/
 
 function Operate(operator, firstNumber, secondNumber){
     switch (operator){
