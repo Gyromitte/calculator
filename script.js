@@ -1,13 +1,15 @@
-let secondNumber = 0;
-
+var operator;
+var firstNumber="";
+var secondNumber=""; 
 /*firstNumber = prompt("write the first number: ");
-operator = prompt("Write the name of the operator that you want to use: ");
+
 secondNumber = prompt("write the second number: ");*/
 
 const screenDisplay = document.getElementById('screen-display');
-let firstNumber = screenDisplay.textContent;
 const AC = document.getElementById('AC');
 const symbols = document.getElementById('symbols');
+const add = document.getElementById('add');
+const equal = document.getElementById('equal');
 
 const cero = document.getElementById('last-button');
 const one = document.getElementById('one');
@@ -25,48 +27,50 @@ const nine = document.getElementById('nine');
 //Events
 cero.addEventListener('click', e=>{
     screenDisplay.textContent += "0";
-    firstNumber = screenDisplay.textContent;
+    secondNumber = screenDisplay.textContent;
 });
 one.addEventListener('click', e=>{
     screenDisplay.textContent += "1";
-    firstNumber = screenDisplay.textContent;
+    secondNumber = screenDisplay.textContent;
 });
 two.addEventListener('click', e=>{
     screenDisplay.textContent += "2";
-    firstNumber = screenDisplay.textContent;
+    secondNumber = screenDisplay.textContent;
 });
 three.addEventListener('click', e=>{
     screenDisplay.textContent += "3";
-    firstNumber = screenDisplay.textContent;
+    secondNumber = screenDisplay.textContent;
 });
 four.addEventListener('click', e=>{
     screenDisplay.textContent += "4";
-    firstNumber = screenDisplay.textContent;
+    secondNumber = screenDisplay.textContent;
 });
 five.addEventListener('click', e=>{
     screenDisplay.textContent += "5";
-    firstNumber = screenDisplay.textContent;
+    secondNumber = screenDisplay.textContent;
 });
 six.addEventListener('click', e=>{
     screenDisplay.textContent += "6";
-    firstNumber = screenDisplay.textContent;
+    secondNumber = screenDisplay.textContent;
 });
 seven.addEventListener('click', e=>{
     screenDisplay.textContent += "7";
-    firstNumber = screenDisplay.textContent;
+    secondNumber = screenDisplay.textContent;
 });
 eight.addEventListener('click', e=>{
     screenDisplay.textContent += "8";
-    firstNumber = screenDisplay.textContent;
+    secondNumber = screenDisplay.textContent;
 });
 nine.addEventListener('click', e=>{
     screenDisplay.textContent += "9";
-    firstNumber = screenDisplay.textContent;
+    secondNumber = screenDisplay.textContent;
 });
 
 //Operators
 AC.addEventListener('click', e=>{
     screenDisplay.textContent = "";
+    firstNumber = "";
+    secondNumber = "";
 });
 
 symbols.addEventListener('click', e=>{
@@ -76,6 +80,19 @@ symbols.addEventListener('click', e=>{
         screenDisplay.textContent = screenDisplay.textContent[0] = "-" + screenDisplay.textContent; 
     }
 });
+
+add.addEventListener('click', e=>{
+    firstNumber = screenDisplay.textContent;
+    screenDisplay.textContent = "";
+    operator = "Add";
+});
+
+equal.addEventListener('click', e=>{
+    console.log(secondNumber);
+    Operate(operator, firstNumber, secondNumber);
+});
+
+
 
 
 function Operate(operator, firstNumber, secondNumber){
@@ -91,7 +108,10 @@ function Operate(operator, firstNumber, secondNumber){
 }
 
 function Add(firstNumber, secondNumber){
-    return(firstNumber + secondNumber);
+    //Converts the strings to numbers to prevent a concatanation
+    firstNumber = firstNumber * 1;
+    secondNumber = secondNumber * 1;
+    return screenDisplay.textContent = firstNumber + secondNumber;
 }
 
 function Substract(firstNumber, secondNumber){
