@@ -1,15 +1,16 @@
 var operator;
 var firstNumber="";
 var secondNumber=""; 
-/*firstNumber = prompt("write the first number: ");
-
-secondNumber = prompt("write the second number: ");*/
 
 const screenDisplay = document.getElementById('screen-display');
 const AC = document.getElementById('AC');
 const symbols = document.getElementById('symbols');
 const add = document.getElementById('add');
+const substract = document.getElementById('substract');
 const equal = document.getElementById('equal');
+const multiply = document.getElementById('multiply');
+const divide = document.getElementById('divide');
+const modular = document.getElementById('modular');
 
 const cero = document.getElementById('last-button');
 const one = document.getElementById('one');
@@ -72,7 +73,6 @@ AC.addEventListener('click', e=>{
     firstNumber = "";
     secondNumber = "";
 });
-
 symbols.addEventListener('click', e=>{
     if(screenDisplay.textContent[0] == "-"){
         screenDisplay.textContent = screenDisplay.textContent.substring(1);
@@ -80,20 +80,35 @@ symbols.addEventListener('click', e=>{
         screenDisplay.textContent = screenDisplay.textContent[0] = "-" + screenDisplay.textContent; 
     }
 });
-
 add.addEventListener('click', e=>{
     firstNumber = screenDisplay.textContent;
     screenDisplay.textContent = "";
     operator = "Add";
 });
-
-equal.addEventListener('click', e=>{
-    console.log(secondNumber);
+substract.addEventListener('click', e=>{
+    firstNumber = screenDisplay.textContent;
+    screenDisplay.textContent = "";
+    operator = "Substract";
+});
+multiply.addEventListener('click', e=>{
+    firstNumber = screenDisplay.textContent;
+    screenDisplay.textContent = "";
+    operator = "Multiply";
+});
+divide.addEventListener('click', e=>{
+    firstNumber = screenDisplay.textContent;
+    screenDisplay.textContent = "";
+    operator = "Divide";
+});
+modular.addEventListener('click', e=>{
+    firstNumber = screenDisplay.textContent;
+    console.log("mod");
+    operator = "Modular";
     Operate(operator, firstNumber, secondNumber);
 });
-
-
-
+equal.addEventListener('click', e=>{
+    Operate(operator, firstNumber, secondNumber);
+});
 
 function Operate(operator, firstNumber, secondNumber){
     switch (operator){
@@ -104,6 +119,9 @@ function Operate(operator, firstNumber, secondNumber){
         case "Multiply": Multiply(firstNumber, secondNumber);
         break;
         case "Divide": Divide(firstNumber, secondNumber);
+        break;
+        case "Modular": Modular(firstNumber);
+        break;
     }
 }
 
@@ -115,14 +133,18 @@ function Add(firstNumber, secondNumber){
 }
 
 function Substract(firstNumber, secondNumber){
-    return console.log(firstNumber - secondNumber);
+    return screenDisplay.textContent = firstNumber - secondNumber;
 }
 
 function Multiply(firstNumber, secondNumber){
-    return (firstNumber * secondNumber);
+    return screenDisplay.textContent = firstNumber * secondNumber;
 }
 
 function Divide(firstNumber, secondNumber){
-    return (firstNumber / secondNumber);
+    return screenDisplay.textContent = firstNumber / secondNumber;
+}
+
+function Modular(firstNumber){
+    return screenDisplay.textContent = firstNumber / 100;
 }
 
