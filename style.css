@@ -7,7 +7,7 @@ body{
     align-items: center;
     justify-content: center;
     margin: 0;
-    background-color: #495867;
+    background-color: #356ba1;
 }
 #container{
     margin-top: 25px;
@@ -59,7 +59,7 @@ body{
     height: 80px;
 }
 .buttons:hover{
-    background-color:#146281;
+    background-color:#d81db062;
 }
 #last-button{
     width: 175px;
